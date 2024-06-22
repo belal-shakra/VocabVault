@@ -9,10 +9,10 @@
         <div class="collapse navbar-collapse" id="nav">
             <div class="navbar-nav px-2">
                 <li class="nav-item">
-                    <a class="nav-link text-white px-2 active @yield('all')" href="">All Words</a>
+                    <a class="nav-link text-white px-2 active @yield('all')" href="{{ route('word.index') }}">All Words</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white px-2 @yield('add_new')" href="">Add New Word</a>
+                    <a class="nav-link text-white px-2 @yield('add_new')" href="{{ route('word.create') }}">Add New Word</a>
                 </li>
             </div>
         </div>

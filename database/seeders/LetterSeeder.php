@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\Alphabetic;
+use App\Models\Letter;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class AlphabeticSeeder extends Seeder
+class LetterSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,7 +15,7 @@ class AlphabeticSeeder extends Seeder
     {
         $alphabetic = range('A', 'Z');
         for($i = 0; $i < count($alphabetic); ++$i){
-            Alphabetic::create([
+            Letter::create([
                 'letter' => $alphabetic[$i]
             ]);
         }

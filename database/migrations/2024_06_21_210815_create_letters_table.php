@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('alphabetics', function (Blueprint $table) {
-            $table->id();
+        Schema::create('letters', function (Blueprint $table) {
+            $table->integer('id', true);
 
             $table->string('letter');
 

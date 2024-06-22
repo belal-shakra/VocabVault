@@ -34,7 +34,7 @@ class WordController extends Controller
     public function store(StoreWordRequest $request)
     {
         $word = $request->validated();
-        $word['word'] = strtoupper($request->word);
+        $word['word'] = ucfirst(strtolower($request->word));
         $word['letter_id'] = Letter::firstWhere('letter', strtoupper($request->word[0]))->id;
 
 

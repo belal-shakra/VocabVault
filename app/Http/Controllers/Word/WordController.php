@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Word;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreWordRequest;
+use App\Models\Letter;
 use App\Models\Word;
 use Illuminate\Http\Request;
 
@@ -28,9 +30,15 @@ class WordController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreWordRequest $request)
     {
-        //
+        $word = $request->validated();
+        $word['word'] = strtoupper($request->word);
+        $word['letter_id'] = Letter::firstWhere('letter', strtoupper($request->word[0]))->id;
+
+
+        Word::create($word);
+        return back()->with('addWordSuccessfully', 'The word added successfully.');
     }
 
     /**

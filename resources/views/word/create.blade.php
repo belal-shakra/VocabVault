@@ -13,43 +13,61 @@
 
 
 
-
         <div class="container">
+
+            @session('addWordSuccessfully')
+                <div class="alert alert-success alert-dismissible fade show">
+                    {{ session('addWordSuccessfully') }}
+                </div>
+            @endsession
+
+
 
             <h1 class="text-center my-5">Add New Word</h1>
             <form action="{{ route('word.store') }}" method="post" class="">
                 @csrf
 
                 <div class="row justify-content-center">
-                    <div class="col col-lg-4 mx-1">
-                        <div class="input-group mb-3 border border-1 border-dark rounded">
+                    <div class="col col-md-12 col-lg-4 mx-1 mb-3">
+                        <div class="input-group border border-1 border-dark rounded">
                             <span class="input-group-text fw-bold">Word</span>
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" name="word">
                         </div>
+                        @error('word')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
     
-                    <div class="col col-lg-4 mx-1">
-                        <div class="input-group mb-3 border border-1 border-dark rounded">
+                    <div class="col col-md-12 col-lg-4 mx-1 mb-3">
+                        <div class="input-group border border-1 border-dark rounded">
                             <span class="input-group-text fw-bold">Meaning</span>
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" name="meaning">
                         </div>
+                        @error('meaning')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
                 </div>
 
-
                 <div class="row justify-content-center">
-                    <div class="col col-lg-4 mx-1">
-                        <div class="input-group mb-3 border border-1 border-dark rounded">
+                    <div class="col col-md-12 col-lg-4 mx-1 mb-3">
+                        <div class="input-group border border-1 border-dark rounded">
                             <span class="input-group-text fw-bold">Pronunciation</span>
-                            <input type="file" class="form-control">
+                            <input type="file" class="form-control" name="pronunciation">
                         </div>
+                        @error('pronunciation')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
     
-                    <div class="col col-lg-4 mx-1">
-                        <div class="input-group mb-3 border border-1 border-dark rounded">
+                    <div class="col col-md-12 col-lg-4 mx-1 mb-3">
+                        <div class="input-group border border-1 border-dark rounded">
                             <span class="input-group-text fw-bold">Like</span>
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" name="like">
                         </div>
+                        @error('like')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
                 </div>
 
@@ -61,11 +79,6 @@
                 </div>
             </form>
         </div>
-
-
-
-
-
     </main>
 
 

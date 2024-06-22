@@ -12,4 +12,10 @@ class Word extends Model
 
 
     protected $fillable = ['word', 'meaning', 'like', 'letter_id'];
+
+
+
+    public function letter(){
+        return $this->belongsTo(Letter::class);
+    }
 }

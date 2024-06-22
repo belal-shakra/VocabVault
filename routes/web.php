@@ -3,6 +3,7 @@
 use App\Http\Controllers\Home\MainController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Word\WordController;
+use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,13 +17,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
 Route::controller(MainController::class)->name('main.')->group(function(){
     Route::get('/', 'home')->name('home');
 });
 
 
 
+Route::get('word/by-letter/{letter}', [WordController::class, 'show_letter'])->name('word.letter');
 Route::resource('word', WordController::class);
 
 

@@ -13,4 +13,8 @@ class Letter extends Model
     protected $fillable = ['letter'];
 
 
+
+    public function words(){
+        return $this->hasMany(Word::class);
+    }
 }

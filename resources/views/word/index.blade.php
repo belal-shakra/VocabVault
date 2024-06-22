@@ -13,10 +13,14 @@
 
 
 
-
-
-
         <div class="container">
+            <h1 class="my-2">All Words</h1>
+
+            @include('word.table-of-words')
+        </div>
+
+
+        {{-- <div class="container">
             @if (count($words))
                 <table class="table table-striped table-hover">
                     <thead>
@@ -47,13 +51,7 @@
                     <h5>There is no any words yet</h5>
                 </div>
             @endif
-        </div>
-
-
-
-
-
-
+        </div> --}}
     </main>
 
 

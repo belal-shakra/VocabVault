@@ -10,12 +10,13 @@ use Illuminate\Http\Request;
 
 class WordController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $words = Word::paginate(perPage:10);
+        $words = Word::orderBy('word')->paginate(perPage:10);
         return view('word.index', compact(['words']));
     }
 
@@ -48,6 +49,23 @@ class WordController extends Controller
     {
         //
     }
+
+
+    /**
+     * Display the specified resource.
+     */
+    public function show_letter(string $letter)
+    {
+
+        if(!ctype_alpha($letter) || strlen($letter)>1)
+            return to_route('word.index');
+
+
+        $words = Letter::firstWhere('letter', strtoupper($letter))->words;
+        $letter = $letter;
+        return view('word.show_letter', compact(['words', 'letter']));
+    }
+
 
     /**
      * Show the form for editing the specified resource.

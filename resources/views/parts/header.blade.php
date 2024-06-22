@@ -11,10 +11,13 @@
                 <li class="nav-item">
                     <a class="nav-link text-white px-2 active @yield('all')" href="{{ route('word.index') }}">All Words</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white px-2 @yield('add_new')" href="{{ route('word.create') }}">Add New Word</a>
-                </li>
                 
+                @auth
+                    <li class="nav-item">
+                        <a class="nav-link text-white px-2 @yield('add_new')"
+                        href="{{ route('word.create') }}">Add New Word</a>
+                    </li>
+                @endauth
             </div>
         </div>
         <div class="d-flex flex-row-reverse">

@@ -28,7 +28,7 @@
                 <div class="input-group input-group-lg border border-1 border-dark rounded">
                     <span class="input-group-text bg-primary-subtle">
                         <a type="button"
-                        onclick="document.getElementById('logout').submit();"
+                        onclick="document.getElementById('search').submit();"
                         class="nav-link text-white">
                             <i class="bi bi-search text-dark"></i>
                         </a>

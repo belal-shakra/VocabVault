@@ -14,7 +14,35 @@
                 <li class="nav-item">
                     <a class="nav-link text-white px-2 @yield('add_new')" href="{{ route('word.create') }}">Add New Word</a>
                 </li>
+                
             </div>
+        </div>
+        <div class="d-flex flex-row-reverse">
+            @auth
+            <div class="dropdown-center">
+                <a class="nav-link text-white" type="button" data-bs-toggle="dropdown">
+                    <i class="bi bi-person-circle px-2"></i>
+                    {{ Auth::user()->first_name }} {{ Auth::user()->last_name }}
+                </a>
+                <ul class="m-3 dropdown-menu">
+
+                    <li><a class="dropdown-item">Profile</a></li>
+                    <form action="{{ route('logout') }}" method="post" id="logout">
+                        @csrf
+                        <li>
+                            <a class="dropdown-item" onclick="document.getElementById('logout').submit();">Logout</a>
+                        </li>
+                    </form>
+                </ul>
+            </div>
+            @endauth
+
+            @guest
+                <a class="nav-link text-white px-2 @yield('add_new')" href="{{ route('login') }}">
+                    Login
+                    <i class="bi bi-box-arrow-in-right"></i>
+                </a>
+            @endguest
         </div>
     </div>
 </nav>

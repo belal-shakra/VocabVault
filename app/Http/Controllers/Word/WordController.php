@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreWordRequest;
 use App\Models\Letter;
 use App\Models\Word;
+use GuzzleHttp\Psr7\Request as Psr7Request;
 use Illuminate\Http\Request;
 
 class WordController extends Controller
@@ -45,9 +46,14 @@ class WordController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Word $word)
+    public function show(string $word)
     {
-        //
+        $word = Word::firstWhere('word', $word);
+        
+        $find = false;
+        if($word)
+            $find = true;
+        return view('word.show', compact(['word', 'find']));
     }
 
 

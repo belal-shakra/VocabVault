@@ -4,7 +4,7 @@
             <tr>
                 <th>#</th>
                 <th>Word</th>
-                <th>Arabic Meaning</th>
+                <th>Meaning</th>
                 <th>Pronunciation</th>
                 <th>Like</th>
                 <th>Action</th>
@@ -19,7 +19,7 @@
                     <td>{{ $word->meaning }}</td>
                     <td><audio src="{{ $word->pronunciation }}"></audio></td>
                     <td>{{ $word->like }}</td>
-                    <td><a href="{{ route('word.show', $word) }}" class="btn btn-primary" >Show</a></td>
+                    <td><a href="{{ route('word.show', $word->word) }}" class="btn btn-primary" >Show</a></td>
                 </tr>
             @endforeach
         </tbody>

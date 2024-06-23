@@ -24,7 +24,8 @@ Route::controller(MainController::class)->name('main.')->group(function(){
 
 
 Route::get('word/by-letter/{letter}', [WordController::class, 'show_letter'])->name('word.letter');
-Route::resource('word', WordController::class);
+Route::get('word/show/{word}', [WordController::class, 'show'])->name('word.show');
+Route::resource('word', WordController::class)->except('show');
 
 
 // Route::get('/dashboard', function () {

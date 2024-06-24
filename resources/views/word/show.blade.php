@@ -36,15 +36,22 @@
 
 
             <div class="container">
-                <div class="row">
-                    <h1 class="col-6 my-4">{{ $word->word }}</h1>
+                <div class="row mb-2">
+                    <h1 class="col-6 my-4">
+                        {{ $word->word }}
+                    </h1>
 
-                    <div class="col-6 d-flex align-items-center flex-row-reverse">
+                    <div class="col col-sm-12 col-lg-6 d-flex align-items-center flex-row-reverse">
                         <a href="https://translate.google.jo/details?hl=en&tab=rT&sl=en&tl=ar&text={{ $word->word }}&op=translate"
                         class="btn btn-primary" target="_blank">
                             Google Translate
                             <img width="28" height="28" src="https://img.icons8.com/color/48/google-translate.png" alt="google-translate"/>
                         </a>
+
+
+                        <button class="btn btn-warning mx-3">
+                            Add To Favorite
+                        </button>
                     </div>
                 </div>
 

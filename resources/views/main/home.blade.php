@@ -1,9 +1,8 @@
 @extends('base')
 
-@section('Vocabulary | Home')
+@section('tab-title' ,'VocabVault | Home')
 
 @section('content')
-
 
 
     <main>
@@ -24,16 +23,14 @@
 
 
         <div class="d-flex justify-content-center mb-5">
-            <form action="" method="post" id="search">
+            <form action="{{ route('search.search') }}" method="post" id="search">
+                @csrf
+
                 <div class="input-group input-group-lg border border-1 border-dark rounded">
                     <span class="input-group-text bg-primary-subtle">
-                        <a type="button"
-                        onclick="document.getElementById('search').submit();"
-                        class="nav-link text-white">
-                            <i class="bi bi-search text-dark"></i>
-                        </a>
+                        <i class="bi bi-search text-dark pb-4"></i>
                     </span>
-                    <input type="text" class="form-control" name="search">
+                    <input type="search" class="form-control" name="search">
                 </div>
 
                 <div class="d-flex justify-content-center m-2">

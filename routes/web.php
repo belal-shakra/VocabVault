@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Home\MainController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Word\SearchController;
 use App\Http\Controllers\Word\WordController;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Route;
@@ -23,9 +24,22 @@ Route::controller(MainController::class)->name('main.')->group(function(){
 
 
 
-Route::get('word/by-letter/{letter}', [WordController::class, 'show_letter'])->name('word.letter');
-Route::get('word/show/{word}', [WordController::class, 'show'])->name('word.show');
-Route::resource('word', WordController::class)->except('show');
+Route::controller(WordController::class)->group(function(){
+    Route::get('word/by-letter/{letter}', 'show_letter')->name('word.letter');
+    Route::get('word/show/{word}', 'show')->name('word.show');
+    Route::resource('word', WordController::class)->except('show');
+});
+
+
+
+Route::controller(SearchController::class)->name('search.')->group(function(){
+    Route::get('/searchxx', 'create')->name('create');
+    Route::post('/search', 'search')->name('search');
+    Route::get('/result', 'result')->name('result');
+});
+
+
+
 
 
 // Route::get('/dashboard', function () {

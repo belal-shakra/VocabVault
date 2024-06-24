@@ -31,7 +31,7 @@
                     <div class="col col-md-12 col-lg-4 mx-1 mb-3">
                         <div class="input-group border border-1 border-dark rounded">
                             <span class="input-group-text fw-bold">Word</span>
-                            <input type="text" class="form-control" name="word">
+                            <input type="text" class="form-control" name="word" value="{{ old('word') }}">
                         </div>
                         @error('word')
                             <span class="text-danger">{{ $message }}</span>
@@ -41,7 +41,7 @@
                     <div class="col col-md-12 col-lg-4 mx-1 mb-3">
                         <div class="input-group border border-1 border-dark rounded">
                             <span class="input-group-text fw-bold">Meaning</span>
-                            <input type="text" class="form-control" name="meaning">
+                            <input type="text" class="form-control" name="meaning" value="{{ old('meaning') }}">
                         </div>
                         @error('meaning')
                             <span class="text-danger">{{ $message }}</span>
@@ -53,17 +53,17 @@
                     <div class="col col-md-12 col-lg-4 mx-1 mb-3">
                         <div class="input-group border border-1 border-dark rounded">
                             <span class="input-group-text fw-bold">Pronunciation</span>
-                            <input type="file" class="form-control" name="pronunciation">
+                            <input type="text" class="form-control" name="pronunciation" value="{{ old('pronunciation') }}">
                         </div>
                         @error('pronunciation')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
-    
+
                     <div class="col col-md-12 col-lg-4 mx-1 mb-3">
                         <div class="input-group border border-1 border-dark rounded">
                             <span class="input-group-text fw-bold">Like</span>
-                            <input type="text" class="form-control" name="like">
+                            <input type="text" class="form-control" name="like" value="{{ old('like') }}">
                         </div>
                         @error('like')
                             <span class="text-danger">{{ $message }}</span>
@@ -71,6 +71,19 @@
                     </div>
                 </div>
 
+                <div class="row justify-content-center">
+                    <div class="col col-md-12 col-lg-8 mx-1 mb-3">
+                        <div class="form-floating border border-1 border-dark rounded">
+                            <textarea class="form-control" placeholder="" id="details" 
+                            style="height:7rem;" name="details"
+                            >{{ old('details') }}</textarea>
+                            <label for="details" class="fw-bold">Details</label>
+                        </div>
+                        @error('details')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
+                </div>
 
                 <div class=" my-4">
                     <div class="row justify-content-center">

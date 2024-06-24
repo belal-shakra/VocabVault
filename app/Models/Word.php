@@ -11,7 +11,7 @@ class Word extends Model
 
 
 
-    protected $fillable = ['word', 'meaning', 'like', 'letter_id'];
+    protected $fillable = ['word', 'meaning', 'like', 'details', 'letter_id'];
 
 
 

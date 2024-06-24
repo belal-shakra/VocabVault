@@ -40,7 +40,7 @@
                     <h1 class="col-6 my-4">{{ $word->word }}</h1>
 
                     <div class="col-6 d-flex align-items-center flex-row-reverse">
-                        <a href="https://translate.google.jo/?hl=en&tab=rT&sl=en&tl=ar&text={{ $word->word }}&op=translate"
+                        <a href="https://translate.google.jo/details?hl=en&tab=rT&sl=en&tl=ar&text={{ $word->word }}&op=translate"
                         class="btn btn-primary" target="_blank">
                             Google Translate
                             <img width="28" height="28" src="https://img.icons8.com/color/48/google-translate.png" alt="google-translate"/>
@@ -70,34 +70,19 @@
             </div>
 
 
-            <div class="container my-5">
-                <div class="p-3 bg-light rounded shadow">
-                    <h4>English Meaning</h4>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Nulla fugiat perspiciatis enim placeat officiis maiores, atque fuga dolores vitae nihil, iste,
-                        sequi eligendi neque exercitationem blanditiis earum sed accusamus error ipsam quasi pariatur?
-                        Accusantium a velit tenetur. Maiores, minima ad!
-                    </p>
-
-
-                    <h4>Examples</h4>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>
-                    </p>
-
-
-
+            @if ($word->details)
+                <div class="container my-5">
+                    <div class="p-3 bg-light rounded shadow">
+                        {!! nl2br($word->details) !!}
+                    </div>
                 </div>
-            </div>
+            @endif
         @else
             <div class="d-flex justify-content-center fs-3 mt-5 pt-5">
                 The word <b class="mx-2">( {{ request()->route('word') }} )</b> isn't registered,
                 <a href="{{ route('word.create') }}" class="mx-2"> Try to register</a> it.
             </div>
         @endif
-
 
     </main>
 

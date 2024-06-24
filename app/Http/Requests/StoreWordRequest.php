@@ -22,10 +22,11 @@ class StoreWordRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'like' => 'min:3|nullable',
-            'word' => 'required|min:2|alpha',
-            'meaning' => 'nullable|min:2',
-            'pronunciation' => 'nullable|file|mimes:mp3',
+            'like'          => 'min:3|nullable',
+            'word'          => 'required|min:2|alpha',
+            'meaning'       => 'nullable|min:2',
+            'details'       => 'nullable|min:256',
+            'pronunciation' => 'nullable',
         ];
     }
 }

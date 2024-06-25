@@ -24,7 +24,7 @@ Route::controller(MainController::class)->name('main.')->group(function(){
 
 
 
-Route::controller(WordController::class)->group(function(){
+Route::middleware('auth')->controller(WordController::class)->group(function(){
     Route::get('word/by-letter/{letter}', 'show_letter')->name('word.letter');
     Route::get('word/show/{word}', 'show')->name('word.show');
     Route::resource('word', WordController::class)->except('show');

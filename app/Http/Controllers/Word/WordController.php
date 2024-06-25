@@ -8,6 +8,7 @@ use App\Models\Letter;
 use App\Models\Word;
 use GuzzleHttp\Psr7\Request as Psr7Request;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class WordController extends Controller
 {
@@ -17,7 +18,7 @@ class WordController extends Controller
      */
     public function index()
     {
-        $words = Word::orderBy('word')->paginate(perPage:10);
+        $words = Word::where('user_id', Auth::user()->id)->orderBy('word')->paginate(perPage:10);
         return view('word.index', compact(['words']));
     }
 
@@ -37,6 +38,7 @@ class WordController extends Controller
         $word = $request->validated();
         $word['word'] = ucfirst(strtolower($request->word));
         $word['letter_id'] = Letter::firstWhere('letter', strtoupper($request->word[0]))->id;
+        $word['user_id'] = Auth::user()->id;
 
 
         Word::create($word);
@@ -48,12 +50,12 @@ class WordController extends Controller
      */
     public function show(string $word)
     {
-        $word = Word::firstWhere('word', $word);
-        
-        $find = false;
-        if($word)
-            $find = true;
-        return view('word.show', compact(['word', 'find']));
+        $word = Word::where('user_id', Auth::user()->id)->firstWhere('word', $word);
+
+        if(!$word)
+            return to_route('word.index');
+
+        return view('word.show', compact(['word']));
     }
 
 
@@ -67,7 +69,10 @@ class WordController extends Controller
             return to_route('word.index');
 
 
-        $words = Letter::firstWhere('letter', strtoupper($letter))->words;
+        $letter_id = Letter::firstWhere('letter', strtoupper($letter))->id;
+        $words = Word::where('letter_id', $letter_id)->where('user_id', Auth::user()->id)->get();
+
+
         $letter = $letter;
         return view('word.show_letter', compact(['words', 'letter']));
     }

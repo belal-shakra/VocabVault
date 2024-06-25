@@ -15,12 +15,16 @@ return new class extends Migration
             $table->integer('id', true);
 
             $table->string('word');
-            $table->string('meaning');
-            $table->string('pronunciation');
-            $table->string('like');
+            $table->string('meaning')->nullable();
+            $table->string('pronunciation')->nullable();
+            $table->string('like')->nullable();
+            $table->text('details')->nullable();
 
             $table->integer('letter_id');
             $table->foreign('letter_id')->references('id')->on('letters');
+
+            $table->integer('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
             $table->timestamps();
         });

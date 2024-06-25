@@ -1,6 +1,6 @@
 @extends('base')
 
-@section('tab-title', "")
+@section('tab-title', "Word | ". $word->word)
 @section('', 'active')
 
 @section('content')
@@ -12,7 +12,7 @@
         </div>
 
 
-        @if ($find)
+        @if ($word != null)
             <div class="container">
                 <div class="p-1">
                     <span class="btn btn-secondary dropdown-toggle"  data-bs-toggle="collapse"

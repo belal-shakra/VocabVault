@@ -33,7 +33,7 @@
                             {{ Auth::user()->first_name }} {{ Auth::user()->last_name }}
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Profile</a></li>
+                            <li><a class="dropdown-item" href="{{ route('profile.profile') }}">Profile</a></li>
                             <li>
                                 <form action="{{ route('logout') }}" method="post" id="logout">
                                     @csrf

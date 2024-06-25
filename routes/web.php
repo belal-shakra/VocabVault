@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\Home\MainController;
-use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Profile\ProfileController;
 use App\Http\Controllers\Word\SearchController;
 use App\Http\Controllers\Word\WordController;
 use Illuminate\Support\Facades\Request;
@@ -33,11 +33,9 @@ Route::controller(WordController::class)->group(function(){
 
 
 Route::controller(SearchController::class)->name('search.')->group(function(){
-    Route::get('/searchxx', 'create')->name('create');
     Route::post('/search', 'search')->name('search');
     Route::get('/result', 'result')->name('result');
 });
-
 
 
 
@@ -46,11 +44,11 @@ Route::controller(SearchController::class)->name('search.')->group(function(){
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
 
-// Route::middleware('auth')->group(function () {
-//     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-//     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-//     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-// });
+
+Route::middleware(['auth'])->controller(ProfileController::class)->name('profile.')->group(function () {
+    Route::get('/profile', 'index')->name('profile');
+    Route::post('/update/{user}', 'index')->name('update');
+});
 
 
 require __DIR__.'/auth.php';

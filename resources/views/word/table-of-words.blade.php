@@ -24,7 +24,7 @@
                             <a href="{{ route('word.show', $word->word) }}" class="btn btn-primary" >Show</a>
                         </td>
                         <td style="width: 0%;">
-                            <a href="{{ route('word.edit', $word) }}" class="btn btn-success" >Edit</a>
+                            <a href="{{ route('word.edit', $word->word) }}" class="btn btn-success" >Edit</a>
                         </td>
                     </tr>
                 @endforeach

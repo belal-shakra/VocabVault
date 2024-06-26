@@ -27,8 +27,9 @@ Route::controller(MainController::class)->name('main.')->group(function(){
 Route::middleware('auth')->controller(WordController::class)->group(function(){
     Route::get('word/by-letter/{letter}', 'show_letter')->name('word.letter');
     Route::get('word/show/{word}', 'show')->name('word.show');
+    Route::get('word/edit/{word}', 'edit')->name('word.edit');
     Route::post('word/save/{word}', 'save')->name('word.save');
-    Route::resource('word', WordController::class)->except('show');
+    Route::resource('word', WordController::class)->except(['show', 'edit']);
 });
 
 

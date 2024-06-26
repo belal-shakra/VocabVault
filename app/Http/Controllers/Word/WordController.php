@@ -103,9 +103,11 @@ class WordController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Word $word)
+    public function edit(string $word)
     {
-        if($word->user_id != Auth::user()->id)
+        $word = Word::where('user_id', Auth::user()->id)->firstWhere('word', $word);
+
+        if(!$word)
             return back();
 
         return view('word.edit', ['word' => $word]);

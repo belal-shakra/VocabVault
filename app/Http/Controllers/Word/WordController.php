@@ -78,6 +78,25 @@ class WordController extends Controller
     }
 
 
+    public function save(Request $request, Word $word){
+
+        if(!$word?->user_id == Auth::user()->id)
+            return back();
+
+        if($word->save)
+            $save = false;
+        else
+            $save = true;
+
+
+        $word->update([
+            'save' => $save,
+        ]);
+
+        return back();
+    }
+
+
     /**
      * Show the form for editing the specified resource.
      */

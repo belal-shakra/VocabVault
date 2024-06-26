@@ -17,14 +17,9 @@
                     
                     <li class="nav-item">
                         <a class="nav-link text-dark fw-bold" href="#"
-                        data-bs-toggle="tab" data-bs-target="#favorite">Favorites</a>
+                        data-bs-toggle="tab" data-bs-target="#save">Save</a>
                     </li>
-    
-                    <li class="nav-item">
-                        <a class="nav-link text-dark fw-bold" href="#"
-                        data-bs-toggle="tab" data-bs-target="#words">Added Words</a>
-                    </li>
-    
+                    
                     <li class="nav-item">
                         <a class="nav-link text-dark fw-bold" href="#"
                         data-bs-toggle="tab" data-bs-target="#delete">Delete Account</a>
@@ -96,16 +91,9 @@
                     </div>
 
 
-                    <div class="tab-pane fade" id="favorite" role="tabpanel">
+                    <div class="tab-pane fade" id="save" role="tabpanel">
                         <div>
-                            favorite
-                        </div>
-                    </div>
-
-
-                    <div class="tab-pane fade" id="words" role="tabpanel">
-                        <div>
-                            Added Words
+                            @include('word.table-of-words')
                         </div>
                     </div>
 

@@ -49,9 +49,18 @@
                         </a>
 
 
-                        <button class="btn btn-warning mx-3">
-                            Add To Favorite
-                        </button>
+                        <form action="{{ route('word.save', $word) }}" method="post" id="save">
+                            @csrf
+
+                            @if ($word->save)
+                                <a type="button" class="btn btn-warning mx-3 px-5 text-dark border border-3 border-warning"
+                                onclick="document.getElementById('save').submit();">Saved</a>
+                            @else
+                                <a type="button" class="btn btn-outline-warning mx-3 px-5 text-dark border border-3 border-warning"
+                                onclick="document.getElementById('save').submit();">Save</a>
+                            @endif
+
+                        </form>
                     </div>
                 </div>
 

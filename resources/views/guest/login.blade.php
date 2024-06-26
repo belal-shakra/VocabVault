@@ -5,49 +5,6 @@
 @section('content')
 
 
-  {{-- <header class="p-2 m-1 mb-5 bg-primary">
-    <div class="d-flex justify-content-center">
-      <img src="{{ asset('assets/img/VocabVault-lg.png') }}" alt="VocabVault" class="img-flui"
-      style="height: 12rem; width: 35rem;" >
-    </div>
-  </header>
-
-  <main>
-    <div class="container py-5">
-
-      <div class="d-flex justify-content-center">
-        
-        <form action="{{ route('login') }}" method="post"
-        class="guest-bg-color border border-1 border-dark rounded p-5 pt-3 mt-5 shadow-lg">
-        @csrf
-          <h1 class="text-center py-4">Login</h1>
-        
-          <div class="form-floating mb-3">
-            <input type="email" class="form-control border border-1 border-dark rounded" id="email" placeholder="">
-            <label for="email">Email address</label>
-          </div>
-
-
-          <div class="form-floating mb-3">
-            <input type="password" class="form-control border border-1 border-dark rounded" id="password" placeholder="">
-            <label for="password">Password</label>
-          </div>
-
-
-
-          <div class="d-flex justify-content-center py-2">
-            <input type="submit" value="Login" class="btn btn-primary px-3 py-2">
-          </div>
-        </form>
-      </div>
-
-    </div>
-  </main>
---}}
-
-
-
-
   <section class="h-100 gradient-form my-5">
     <div class="container py-5 h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
@@ -115,8 +72,6 @@
       </div>
     </div>
   </section>
-
-
 
 
 

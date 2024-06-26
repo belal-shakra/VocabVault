@@ -36,18 +36,20 @@
 
 
             <div class="container">
-                <div class="row mb-2">
-                    <h1 class="col-6 my-4">
+                <div class="row mb-2 justify-content-center">
+                    <h1 class="col-sm-12 col-md-12 col-lg-4 my-4">
                         {{ $word->word }}
                     </h1>
 
-                    <div class="col col-sm-12 col-lg-6 d-flex align-items-center flex-row-reverse">
+                    <div class="col-sm-12 col-md-12 col-lg-8 d-flex align-items-center flex-row-reverse">
+
                         <a href="https://translate.google.jo/details?hl=en&tab=rT&sl=en&tl=ar&text={{ $word->word }}&op=translate"
                         class="btn btn-primary" target="_blank">
-                            Google Translate
+                            <span class="d-none d-sm-inline-block">Google Translate</span>
                             <img width="28" height="28" src="https://img.icons8.com/color/48/google-translate.png" alt="google-translate"/>
                         </a>
 
+                        <a href="{{ route('word.edit', $word) }}" class="btn btn-success mx-3 ms-0 px-5 py-2">Edit</a>
 
                         <form action="{{ route('word.save', $word) }}" method="post" id="save">
                             @csrf

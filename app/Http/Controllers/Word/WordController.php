@@ -22,6 +22,7 @@ class WordController extends Controller
         return view('word.index', compact(['words']));
     }
 
+
     /**
      * Show the form for creating a new resource.
      */
@@ -29,6 +30,7 @@ class WordController extends Controller
     {
         return view('word.create');
     }
+
 
     /**
      * Store a newly created resource in storage.
@@ -44,6 +46,7 @@ class WordController extends Controller
         Word::create($word);
         return back()->with('addWordSuccessfully', 'The word added successfully.');
     }
+
 
     /**
      * Display the specified resource.
@@ -102,16 +105,33 @@ class WordController extends Controller
      */
     public function edit(Word $word)
     {
-        //
+        if($word->user_id != Auth::user()->id)
+            return back();
+
+        return view('word.edit', ['word' => $word]);
     }
+
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Word $word)
+    public function update(StoreWordRequest $request, Word $word)
     {
-        //
+        // dump($word->user_id);
+        // dump(Auth::user()->id);
+        if($word->user_id != Auth::user()->id)
+            return back();
+
+
+        $updated_word = $request->validated();
+        $updated_word['letter_id'] = Letter::firstWhere('letter', strtoupper($request->word[0]))->id;
+
+        $word->update($updated_word);
+        $word->save();
+
+        return redirect()->route('word.show', $word->word);
     }
+
 
     /**
      * Remove the specified resource from storage.

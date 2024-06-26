@@ -31,7 +31,7 @@
 
             <div class="p-4">
                 <div class="tab-content container" id="nav-tabContent">
-                    <div class="tab-pane fade show active" id="profile" role="tabpanel">
+                    <div class="tab-pane fade " id="profile" role="tabpanel">
                         <div class="my-3">
 
                             @session('profileUpdatedSuccessfully')
@@ -120,9 +120,24 @@
                     </div>
 
 
-                    <div class="tab-pane fade" id="delete" role="tabpanel">
+                    <div class="tab-pane fade show active" id="delete" role="tabpanel">
                         <div>
-                            Delete Account
+                            <p class="lead">
+                                <b class="fw-bold d-block">Important Notes Before DELETE your Account :</b>
+                                
+                                <ol class="fs-5">
+                                    <li>The account will delete forever.</li>
+                                    <li>All words you added and saved will delete</li>
+                                </ol>
+                            </p>
+
+
+                            <div class="my-5">
+                                <button class="btn btn-danger my-5" data-bs-toggle="modal" data-bs-target="#delete-account">
+                                    Delete Account
+                                </button>
+                                @include('profile.delete-account')
+                            </div>
                         </div>
                     </div>
                 </div>

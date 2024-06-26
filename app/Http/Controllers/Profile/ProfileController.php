@@ -2,16 +2,19 @@
 
 namespace App\Http\Controllers\Profile;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\ProfileUpdateRequest;
 use App\Models\User;
 use App\Models\Word;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\DeleteAccountRequest;
+use App\Http\Requests\ProfileUpdateRequest;
 
 class ProfileController extends Controller
 {
+    /**
+     * Display User Profile
+     */
     public function index(){
 
         $words = Word::firstWhere('user_id', Auth::user()->id)->where('save', true)->get();
@@ -20,6 +23,9 @@ class ProfileController extends Controller
     }
 
 
+    /**
+     * Update User Account
+     */
     public function update(ProfileUpdateRequest $request, User $user){
 
         $profile = $request->validated();
@@ -32,4 +38,23 @@ class ProfileController extends Controller
         return back()->with('profileUpdatedSuccessfully', 'The profile updated successfully.');
     }
 
+
+    /**
+     * Delete User Account
+     */
+    public function destroy(DeleteAccountRequest $request, User $user){
+
+        if($user->id != Auth::user()->id)
+            return back();
+
+        $request->validated();
+
+        if($request->email != Auth::user()->email ||
+            !Hash::check($request->password, Auth::user()->password))
+                return back();
+
+
+        $user->delete();
+        return to_route('main.home');
+    }
 }

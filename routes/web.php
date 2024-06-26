@@ -49,6 +49,7 @@ Route::controller(SearchController::class)->name('search.')->group(function(){
 Route::middleware(['auth'])->controller(ProfileController::class)->name('profile.')->group(function () {
     Route::get('/profile', 'index')->name('profile');
     Route::post('/profile/update/{user}', 'update')->name('update');
+    Route::delete('/profile/{user}', 'destroy')->name('destroy');
 });
 
 

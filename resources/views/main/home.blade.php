@@ -17,7 +17,8 @@
         <div class="text-center pt-5 mt-5 pb-3 mb-3">
             <div class="fs-5">Search in</div>
             <h1 class="site-brand">
-                <span>VocabVault</span>
+                <img src="{{ asset('assets/img/VocabVault-black.png') }}"
+                alt="VocabVault" class="img-fluid" style="width: 20rem">
             </h1>
         </div>
 

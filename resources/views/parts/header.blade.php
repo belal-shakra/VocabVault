@@ -1,7 +1,7 @@
 <nav class="navbar bg-primary navbar-expand-lg">
     <div class="container-fluid">
         <a class="navbar-brand text-white fw-bold site-brand" href="{{ route('main.home') }}">
-            VocabVault
+            <img src="{{ asset('assets/img/VocabVault.png') }}" alt="VocabVault" class="img-fluid" style="width: 12rem">
         </a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">

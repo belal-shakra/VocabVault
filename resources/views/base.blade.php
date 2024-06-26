@@ -17,7 +17,9 @@
     <body>
 
 
-        @include('parts.header')
+        @if (Auth::check())
+            @include('parts.header')
+        @endif
 
 
         @yield('content')

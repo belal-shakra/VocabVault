@@ -8,9 +8,38 @@ body {
 }
 
 .site-brand {
-font-family: system-ui;
+    font-family: system-ui;
 }
 
 .letter-hover:hover{
-    background-color: rgb(94, 160, 241);
+    background-color: rgb(29, 117, 224);
+}
+
+.guest-bg-color {
+    background-color: rgba(232, 232, 232, 0.659);
+}
+
+
+
+.gradient-custom-2 {
+    /* fallback for old browsers */
+    background: #fccb90;
+    
+    /* Chrome 10-25, Safari 5.1-6 */
+    /* background: -webkit-linear-gradient(to right, #468efb, #fd0d0d, #0d6efd, #0d6efd); */
+    
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, #438dfc, #3280f6, #0d6efd, #0d6efd, #3280f6, #438dfc);
+    }
+    
+    @media (min-width: 768px) {
+    .gradient-form {
+    height: 100vh !important;
+    }
+    }
+    @media (min-width: 769px) {
+    .gradient-custom-2 {
+    border-top-right-radius: .3rem;
+    border-bottom-right-radius: .3rem;
+    }
 }

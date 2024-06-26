@@ -18,38 +18,35 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::controller(MainController::class)->name('main.')->group(function(){
-    Route::get('/', 'home')->name('home');
-});
+
+Route::middleware('auth')->group(function(){
+
+    Route::controller(MainController::class)->name('main.')->group(function(){
+        Route::get('/', 'home')->name('home');
+    });
 
 
 
-Route::middleware('auth')->controller(WordController::class)->group(function(){
-    Route::get('word/by-letter/{letter}', 'show_letter')->name('word.letter');
-    Route::get('word/edit/{word}', 'edit')->name('word.edit');
-    Route::post('word/save/{word}', 'save')->name('word.save');
-    Route::resource('word', WordController::class)->except(['edit']);
-});
+    Route::controller(WordController::class)->group(function(){
+        Route::get('word/by-letter/{letter}', 'show_letter')->name('word.letter');
+        Route::get('word/edit/{word}', 'edit')->name('word.edit');
+        Route::post('word/save/{word}', 'save')->name('word.save');
+        Route::resource('word', WordController::class)->except(['edit']);
+    });
 
 
 
-Route::controller(SearchController::class)->name('search.')->group(function(){
-    Route::post('/search', 'search')->name('search');
-    Route::get('/result', 'result')->name('result');
-});
+    Route::controller(SearchController::class)->name('search.')->group(function(){
+        Route::post('/search', 'search')->name('search');
+        Route::get('/result', 'result')->name('result');
+    });
 
 
-
-
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
-
-
-Route::middleware(['auth'])->controller(ProfileController::class)->name('profile.')->group(function () {
-    Route::get('/profile', 'index')->name('profile');
-    Route::post('/profile/update/{user}', 'update')->name('update');
-    Route::delete('/profile/{user}', 'destroy')->name('destroy');
+    Route::controller(ProfileController::class)->name('profile.')->group(function () {
+        Route::get('/profile', 'index')->name('profile');
+        Route::post('/profile/update/{user}', 'update')->name('update');
+        Route::delete('/profile/{user}', 'destroy')->name('destroy');
+    });
 });
 
 

@@ -95,6 +95,13 @@
                     </div>
                 </div>
             @endif
+
+
+            <div class="container pt-5 mt-5">
+                <a type="button" class="btn btn-danger"
+                data-bs-toggle="modal" data-bs-target="#delete-word">Delete</a>
+                @include('word.delete-modal')
+            </div>
         @else
             <div class="d-flex justify-content-center fs-3 mt-5 pt-5">
                 The word <b class="mx-2">( {{ request()->route('word') }} )</b> isn't registered,

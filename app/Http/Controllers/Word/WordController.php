@@ -140,6 +140,10 @@ class WordController extends Controller
      */
     public function destroy(Word $word)
     {
-        //
+        if($word->user_id != Auth::user()->id)
+            return back();
+
+        $word->delete();
+        return back();
     }
 }

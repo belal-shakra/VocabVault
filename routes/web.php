@@ -48,7 +48,7 @@ Route::controller(SearchController::class)->name('search.')->group(function(){
 
 Route::middleware(['auth'])->controller(ProfileController::class)->name('profile.')->group(function () {
     Route::get('/profile', 'index')->name('profile');
-    Route::post('/update/{user}', 'index')->name('update');
+    Route::post('/profile/update/{user}', 'update')->name('update');
 });
 
 

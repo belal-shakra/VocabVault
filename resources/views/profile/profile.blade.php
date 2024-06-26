@@ -33,50 +33,72 @@
                 <div class="tab-content container" id="nav-tabContent">
                     <div class="tab-pane fade show active" id="profile" role="tabpanel">
                         <div class="my-3">
-                            <h2>Edit</h2>
 
+                            @session('profileUpdatedSuccessfully')
+                                <div class="alert alert-success">
+                                    {{ session('profileUpdatedSuccessfully') }}
+                                </div>
+                            @endsession
+
+
+                            <h2>Edit</h2>
                             <form action="{{ route('profile.update', Auth::user()) }}" method="POST" class="py-2">
                                 @csrf
 
                                 <div class="row">
-                                    <div class="col-sm-12 col-lg-6">
-                                        <div class="input-group mb-3 border border-1 border-dark rounded">
+                                    <div class="col-sm-12 col-lg-6 mb-3">
+                                        <div class="input-group border border-1 border-dark rounded">
                                             <span class="input-group-text fw-bold bg-primary-subtle">First Name</span>
-                                            <input type="text" class="form-control" name="first_name">
+                                            <input type="text" class="form-control" name="first_name" value="{{ Auth::user()->first_name }}">
                                         </div>
+                                        @error('first_name')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
         
-                                    <div class="col-sm-12 col-lg-6">
-                                        <div class="input-group mb-3 border border-1 border-dark rounded">
+                                    <div class="col-sm-12 col-lg-6 mb-3">
+                                        <div class="input-group border border-1 border-dark rounded">
                                             <span class="input-group-text fw-bold bg-primary-subtle">Last Name</span>
-                                            <input type="text" class="form-control" name="last_name">
+                                            <input type="text" class="form-control" name="last_name" value="{{ Auth::user()->last_name }}">
                                         </div>
                                     </div>
+                                    @error('last_name')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
 
 
-                                <div class="input-group mb-3 border border-1 border-dark rounded">
-                                    <span class="input-group-text fw-bold bg-primary-subtle">Email</span>
-                                    <input type="email" class="form-control" name="email">
+                                <div class="mb-3">
+                                    <div class="input-group border border-1 border-dark rounded">
+                                        <span class="input-group-text fw-bold bg-primary-subtle">Email</span>
+                                        <input type="email" class="form-control" name="email" value="{{ Auth::user()->email }}">
+                                    </div>
+                                    @error('email')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
+
 
 
                                 <div class=" py-5">
                                     <div class="row">
-                                        <div class="col col-sm-12 col-lg-6">
-                                            <div class="input-group mb-3 border border-1 border-dark rounded">
+                                        <div class="col col-sm-12 col-lg-6 mb-3">
+                                            <div class="input-group border border-1 border-dark rounded">
                                                 <span class="input-group-text fw-bold bg-primary-subtle"
                                                 style="min-width: 2rem">Password</span>
                                                 <input type="password" class="form-control" name="password">
                                             </div>
+                                            @error('password')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col col-sm-12 col-lg-6">
-                                            <div class="input-group mb-3 border border-1 border-dark rounded">
+                                            <div class="input-group border border-1 border-dark rounded">
                                                 <span class="input-group-text fw-bold bg-primary-subtle"
                                                 style="min-width: 2rem">Confirmation</span>
-                                                <input type="password" class="form-control" name="password-confirmation">
+                                                <input type="password" class="form-control" name="password_confirmation">
                                             </div>
                                         </div>
                                     </div>

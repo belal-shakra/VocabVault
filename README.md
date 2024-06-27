@@ -1,9 +1,15 @@
 # VocabVault
 
-<img src="public/assets/img/VocabVaullt-poster.png">
+!(VocabVault)[VocabVault-poster.png]
+<img src="public/assets/img/VocabVault-poster.png">
+
 
 **Created By :** Belal Shakra
 **Email :**
+
+
+## Overview
+
 
 
 

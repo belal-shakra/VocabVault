@@ -15,8 +15,8 @@
               <div class="col-lg-6 p-3">
                 <div class="card-body p-md-5 mx-md-4">
 
-                  <div class="text-center my-5 site-brand">
-                      <h1>Login</h1>
+                  <div class="text-center my-5 h1">
+                    Login
                   </div>
 
                   <form method="POST" action="{{ route('login') }}">
@@ -72,8 +72,6 @@
       </div>
     </div>
   </section>
-
-
 
 
 @endsection

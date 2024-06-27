@@ -1,6 +1,5 @@
 # VocabVault
 
-![VocabVault](VocabVault-poster.png)
 <img src="public/assets/img/VocabVault-poster.png">
 
 

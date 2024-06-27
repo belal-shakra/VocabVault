@@ -1,6 +1,6 @@
 # VocabVault
 
-![VocabVault](public/assets/img/VocabVaullt-poster.png)
+![VocabVault](https://drive.google.com/file/d/1SEWOEAQ5zWxLMiqosIHUbifanFSXSe-B/view?usp=sharing)
 
 **Created By :** Belal Shakra
 **Email :**

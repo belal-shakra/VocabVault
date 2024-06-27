@@ -49,7 +49,7 @@
                             <img width="28" height="28" src="https://img.icons8.com/color/48/google-translate.png" alt="google-translate"/>
                         </a>
 
-                        <a href="{{ route('word.edit', $word) }}" class="btn btn-success mx-3 ms-0 px-5 py-2">Edit</a>
+                        <a href="{{ route('word.edit', $word->word) }}" class="btn btn-success mx-3 ms-0 px-5 py-2">Edit</a>
 
                         <form action="{{ route('word.save', $word) }}" method="post" id="save">
                             @csrf

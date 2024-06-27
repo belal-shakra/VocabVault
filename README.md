@@ -9,7 +9,7 @@
 
 ## Overview
 
-VocabVault is a website that provides the users to add a vocabularies with its meaning in other language, pronunciation, other word that pronuncite like it, and any more details. ---
+VocabVault is a website that provides the users to add a vocabularies with its meaning in other language, pronunciation, other word that pronuncite like it, and any more details. 
 The user can create, update, show, and delete a word. He can display words by its first letter, and search about it.
 Also he can save the word to saved word. In addition, he can display the word in google translate with its full details.
 

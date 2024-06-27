@@ -1,6 +1,6 @@
 # VocabVault
 
-<img src="public/assets/img/VocabVaullt-poster.png">
+![VocabVault](public/assets/img/VocabVaullt-poster.png)
 
 **Created By :** Belal Shakra
 **Email :**

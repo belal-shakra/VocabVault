@@ -9,6 +9,9 @@ use Illuminate\Http\Request;
 
 class SearchController extends Controller
 {
+    /**
+     * Search about word.
+     */
     public function search(SearchRequest $request){
         $search = $request->validated()['search'];
 
@@ -16,6 +19,9 @@ class SearchController extends Controller
     }
 
 
+    /**
+     * Dispaly search's result.
+     */
     public function result(Request $request){
         $search = $request->get('search');
         $words = Word::where('word', $search)->get();

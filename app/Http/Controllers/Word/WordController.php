@@ -63,7 +63,7 @@ class WordController extends Controller
 
 
     /**
-     * Display the specified resource.
+     * Display the words that belongs to specifed letter.
      */
     public function show_letter(string $letter)
     {
@@ -81,6 +81,9 @@ class WordController extends Controller
     }
 
 
+    /**
+     * Add a word to saved words.
+     */
     public function save(Request $request, Word $word){
 
         if(!$word?->user_id == Auth::user()->id)
@@ -119,8 +122,7 @@ class WordController extends Controller
      */
     public function update(StoreWordRequest $request, Word $word)
     {
-        // dump($word->user_id);
-        // dump(Auth::user()->id);
+
         if($word->user_id != Auth::user()->id)
             return back();
 

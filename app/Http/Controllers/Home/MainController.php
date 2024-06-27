@@ -9,6 +9,9 @@ use Illuminate\Http\Request;
 
 class MainController extends Controller
 {
+    /**
+     * Display Home Page
+     */
     public function home(){
 
         return view('main.home');

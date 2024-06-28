@@ -17,6 +17,10 @@ Also he can save the word to saved word. In addition, he can display the word in
 certainly the user can edit his profile, and delete it.
 
 
+### Future Work
+1- Give the user an ability to create a workspace for a certain goal (a course for example). And he can creates a categories inside this workspace to categorize his words as he like.
+
+
 
 ## Installation
 

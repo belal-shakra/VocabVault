@@ -7,9 +7,7 @@
 
 
     <main>
-        <div class="m-5 d-flex justify-content-center">
-            @include('parts.letters')
-        </div>
+        @include('parts.letters')
 
 
 

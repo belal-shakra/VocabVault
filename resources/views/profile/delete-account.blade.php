@@ -37,7 +37,7 @@
                 </div>
                 
                 <div class="modal-footer">
-                    <input type="submit" class="btn btn-danger">
+                    <input type="submit" value="Delete" class="btn btn-danger">
                 </div>
             </form>
         </div>

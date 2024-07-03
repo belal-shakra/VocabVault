@@ -17,7 +17,7 @@ class ProfileController extends Controller
      */
     public function index(){
 
-        $words = Word::firstWhere('user_id', Auth::user()->id)->where('save', true)->get();
+        $words = Word::where('save', true)->where('user_id', Auth::user()->id)->get();
 
         return view('profile.profile', compact(['words']));
     }

@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
+        <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/tab-logo.png') }}">
 
         {{-- CDN --}}
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
@@ -30,5 +31,7 @@
 
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://kit.fontawesome.com/b23f87e5ba.js" crossorigin="anonymous"></script>
+        <script src="{{ asset('assets/js/main.js') }}"></script>
     </body>
 </html>

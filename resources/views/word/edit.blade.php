@@ -66,6 +66,7 @@
 
                 <div class="row justify-content-center">
                     <div class="col col-md-12 col-lg-8 mx-1 mb-3">
+
                         <div class="form-floating border border-1 border-dark rounded">
                             <textarea class="form-control" placeholder="" id="details" 
                             style="height:7rem;" name="details"

@@ -18,7 +18,7 @@ class WordController extends Controller
      */
     public function index()
     {
-        $words = Word::where('user_id', Auth::user()->id)->orderBy('word')->paginate(perPage:10);
+        $words = Word::where('user_id', Auth::user()->id)->orderByDesc('id')->paginate(perPage:20);
         return view('word.index', compact(['words']));
     }
 
@@ -53,12 +53,12 @@ class WordController extends Controller
      */
     public function show(string $word)
     {
-        $word = Word::where('user_id', Auth::user()->id)->firstWhere('word', $word);
+        $words = Word::where('user_id', Auth::user()->id)->where('word', $word)->get();
 
         if(!$word)
             return to_route('word.index');
 
-        return view('word.show', compact(['word']));
+        return view('word.show', compact(['words']));
     }
 
 
@@ -73,7 +73,7 @@ class WordController extends Controller
 
 
         $letter_id = Letter::firstWhere('letter', strtoupper($letter))->id;
-        $words = Word::where('letter_id', $letter_id)->where('user_id', Auth::user()->id)->get();
+        $words = Word::where('letter_id', $letter_id)->where('user_id', Auth::user()->id)->paginate(perPage:20);
 
 
         $letter = $letter;

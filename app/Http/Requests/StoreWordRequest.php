@@ -23,9 +23,9 @@ class StoreWordRequest extends FormRequest
     {
         return [
             'like'          => 'min:3|nullable',
-            'word'          => 'required|min:2|alpha',
+            'word'          => 'required|min:2',
             'meaning'       => 'nullable|min:2',
-            'details'       => 'nullable|min:256',
+            'details'       => 'nullable|',
             'pronunciation' => 'nullable',
         ];
     }

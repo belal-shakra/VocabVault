@@ -76,11 +76,10 @@
                 </div>
             @endif
 
-
             <div class="container pt-5 mt-5">
                 <a type="button" class="btn btn-danger"
-                data-bs-toggle="modal" data-bs-target="#delete-word">Delete</a>
-                @include('word.delete-modal')
+                data-bs-toggle="modal" data-bs-target="#delete-word{{ $words->search($words->first()) }}">Delete</a>
+                @include('word.delete-modal', ['loop' => $words->search($words->first()), 'word' => $words->first()])
             </div>
         @else
             <div class="d-flex justify-content-center fs-3 mt-5 pt-5">

@@ -16,10 +16,10 @@
                 @foreach ($words as $word)
                     <tr>
                         <th>
-                            @if (count($words) == 1)
-                                {{ $loop->iteration }}
+                            @if (Route::currentRouteName() == 'word.index')
+                                {{ ($words->currentPage() - 1) * $words->perPage() + $loop->iteration }}
                             @else
-                                {{ $words->firstItem() + $loop->index }}
+                                {{ $loop->iteration }}
                             @endif
                         </th>
                         <td>{{ $word->word }}</td>
@@ -35,8 +35,8 @@
                             </td>
                             <td style="width: 0%;">
                                 <a type="button" class="btn btn-danger"
-                                data-bs-toggle="modal" data-bs-target="#delete-word">Delete</a>
-                                @include('word.delete-modal')
+                                data-bs-toggle="modal" data-bs-target="#delete-word{{ $loop->iteration }}">Delete</a>
+                                @include('word.delete-modal', ['loop' => $loop->iteration, 'word', $word])
                             </td>
                         @endif
                     </tr>

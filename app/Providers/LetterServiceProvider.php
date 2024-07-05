@@ -24,7 +24,6 @@ class LetterServiceProvider extends ServiceProvider
         View::composer('*', function ($view) {
 
             $letters = Letter::all();
-
             $view->with('letters', $letters);
         });
     }

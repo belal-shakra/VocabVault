@@ -5,7 +5,6 @@
 @section('content')
 
 
-
     <main>
         @include('parts.letters')
 

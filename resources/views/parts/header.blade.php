@@ -20,7 +20,7 @@
                 <li class="nav-item">
                     @auth
                         <a class="nav-link text-white px-2 @yield('add_new')"
-                        href="{{ route('word.create') }}">Add New Word</a>
+                        href="{{ route('word.create') }}">Add Word</a>
                     @endauth
                 </li>
 

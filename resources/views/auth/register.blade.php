@@ -27,7 +27,7 @@
 
                     <div class="mb-4">
                       <div class="form-floating flex-fill mb-0">
-                        <input type="text" id="fname" class="form-control" name="first_name" placeholder="">
+                        <input type="text" id="fname" class="form-control" name="first_name" placeholder="" value="{{ old('first_name') }}">
                         <label class="form-label" for="fname">First Name</label>
                       </div>
                       @error('first_name')
@@ -37,7 +37,7 @@
 
                     <div class="mb-4">
                       <div class="form-floating flex-fill mb-0">
-                        <input type="text" id="lname" class="form-control" name="last_name" placeholder="">
+                        <input type="text" id="lname" class="form-control" name="last_name" placeholder="" value="{{ old('last_name') }}">
                         <label class="form-label" for="lname">Last Name</label>
                       </div>
                       @error('last_name')
@@ -47,7 +47,7 @@
 
                     <div class="mb-4">
                       <div class="form-floating flex-fill mb-0">
-                        <input type="email" id="email" class="form-control" name="email" placeholder="">
+                        <input type="email" id="email" class="form-control" name="email" placeholder="" value="{{ old('email') }}">
                         <label class="form-label" for="email">Email</label>
                       </div>
                       @error('email')
@@ -57,7 +57,7 @@
 
                     <div class="mb-4">
                       <div class="form-floating flex-fill mb-0">
-                        <input type="password" id="password" class="form-control" name="password" placeholder="">
+                        <input type="password" id="password" class="form-control" name="password" placeholder="" value="{{ old('password') }}">
                         <label class="form-label" for="password">Password</label>
                       </div>
                       @error('password')

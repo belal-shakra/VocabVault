@@ -29,7 +29,7 @@
                     <div class="col col-md-12 col-lg-4 mx-1 mb-3">
                         <div class="input-group border border-1 border-dark rounded">
                             <span class="input-group-text fw-bold">Word</span>
-                            <input type="text" class="form-control" name="word" value="{{ old('word') }}">
+                            <input type="text" class="form-control" name="word" value="{{ old('word') }}" autofocus>
                         </div>
                         @error('word')
                             <span class="text-danger">{{ $message }}</span>

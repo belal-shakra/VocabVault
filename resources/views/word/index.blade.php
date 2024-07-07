@@ -13,10 +13,9 @@
 
 
         <div class="container">
-            <h1 class="my-2">All Words</h1>
+            <x-show-word-title :letter="null" :count="$words->total()">All Words</x-show-word-title>
 
             @include('word.table-of-words')
-
 
             <div class="row">
                 <div class="col-lg-12">

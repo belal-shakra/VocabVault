@@ -80,7 +80,7 @@ class WordController extends Controller
 
 
         $letter_id = Letter::firstWhere('letter', strtoupper($letter))->id;
-        $words = Word::where('letter_id', $letter_id)->where('user_id', Auth::user()->id)->paginate(perPage:20);
+        $words = Word::where('letter_id', $letter_id)->where('user_id', Auth::user()->id)->orderByDesc('id')->paginate(perPage:20);
 
 
         $letter = $letter;

@@ -38,6 +38,13 @@ class WordController extends Controller
     public function store(StoreWordRequest $request)
     {
         $word = $request->validated();
+
+        $isExist = Word::firstWhere('user_id', Auth::user()->id)->firstWhere('word', $word['word']);
+
+        if($isExist)
+            return back()->with('alreadyExist', 'This word already exist !');
+
+
         $word['word'] = ucfirst(strtolower($request->word));
         $word['letter_id'] = Letter::firstWhere('letter', strtoupper($request->word[0]))->id;
         $word['user_id'] = Auth::user()->id;
@@ -55,7 +62,7 @@ class WordController extends Controller
     {
         $words = Word::where('user_id', Auth::user()->id)->where('word', $word)->get();
 
-        if(!$word)
+        if(!$words)
             return to_route('word.index');
 
         return view('word.show', compact(['words']));

@@ -13,12 +13,20 @@
 
         <div class="container">
 
+
             @session('addWordSuccessfully')
                 <div class="alert alert-success alert-dismissible fade show">
                     {{ session('addWordSuccessfully') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             @endsession
 
+            @session('alreadyExist')
+                <div class="alert alert-danger alert-dismissible fade show">
+                    {{ session('alreadyExist') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endsession
 
 
             <h1 class="text-center my-5">Add New Word</h1>

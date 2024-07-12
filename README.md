@@ -59,18 +59,18 @@ You have to generate new application key as below.
 php artisan key:generate
 ```
 
-## Run Seeders
-
-You have to run seeders as below.
-
-```
-php artisan db:seed --class=LetterSeeder
-```
-
 ## Run Migrations
 
 You have to run all the migration files included with the project and also run seeders as below.
 
 ```
 php artisan migrate
+```
+
+## Run Seeders
+
+You have to run seeders as below.
+
+```
+php artisan db:seed --class=LetterSeeder
 ```

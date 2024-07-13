@@ -24,53 +24,15 @@
                   <form action="{{ route('register') }}" method="POST" class="mx-1 mx-md-4">
                     @csrf
 
+                    <x-input type=text name=first_name label=first_name/>
 
-                    <div class="mb-4">
-                      <div class="form-floating flex-fill mb-0">
-                        <input type="text" id="fname" class="form-control" name="first_name" placeholder="" value="{{ old('first_name') }}">
-                        <label class="form-label" for="fname">First Name</label>
-                      </div>
-                      @error('first_name')
-                        <span class="text-danger">{{ $message }}</span>
-                      @enderror
-                    </div>
+                    <x-input type=text name=last_name label=last_name/>
 
-                    <div class="mb-4">
-                      <div class="form-floating flex-fill mb-0">
-                        <input type="text" id="lname" class="form-control" name="last_name" placeholder="" value="{{ old('last_name') }}">
-                        <label class="form-label" for="lname">Last Name</label>
-                      </div>
-                      @error('last_name')
-                        <span class="text-danger">{{ $message }}</span>
-                      @enderror
-                    </div>
+                    <x-input type=email name=email label=Email/>
 
-                    <div class="mb-4">
-                      <div class="form-floating flex-fill mb-0">
-                        <input type="email" id="email" class="form-control" name="email" placeholder="" value="{{ old('email') }}">
-                        <label class="form-label" for="email">Email</label>
-                      </div>
-                      @error('email')
-                        <span class="text-danger">{{ $message }}</span>
-                      @enderror
-                    </div>
+                    <x-input type=password name=password label=Password/>
 
-                    <div class="mb-4">
-                      <div class="form-floating flex-fill mb-0">
-                        <input type="password" id="password" class="form-control" name="password" placeholder="" value="{{ old('password') }}">
-                        <label class="form-label" for="password">Password</label>
-                      </div>
-                      @error('password')
-                        <span class="text-danger">{{ $message }}</span>
-                      @enderror
-                    </div>
-
-                    <div class="mb-4">
-                      <div class="form-floating flex-fill mb-0">
-                        <input type="password" id="password_confirmation" class="form-control" name="password_confirmation" placeholder="">
-                        <label class="form-label" for="password_confirmation">Password Confirmation</label>
-                      </div>
-                    </div>
+                    <x-input type=password name=password_confirmation label="Password Confirmation"/>
 
                     <div class="d-flex flex-row-reverse">
                       <div class="justify-content-start mx-4 mt-3">
@@ -80,7 +42,7 @@
                         </span>
                       </div>
   
-                      <div class="justify-content-end mx-4 mb-3 mb-lg-4">
+                      <div class="justify-content-end mx-4 mb-lg-4">
                         <input type="submit" value="Register"  class="btn btn-primary btn-lg">
                       </div>
                     </div>

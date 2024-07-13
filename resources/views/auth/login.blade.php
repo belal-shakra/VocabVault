@@ -22,33 +22,15 @@
                   <form method="POST" action="{{ route('login') }}">
                     @csrf
 
-                    <div class="form-floating mb-3">
-                      <input type="email" class="form-control border border-1 border-dark rounded"
-                      id="email" placeholder="" name="email" value="{{ old('email') }}">
+                    <x-input type=email name=email label=Email/>
 
-                      <label for="email">Email address</label>
-                      @error('email')
-                        <span class="text-danger">{{ $message }}</span>
-                      @enderror
-                    </div>
-          
-          
-                    <div class="form-floating mb-3">
-                      <input type="password" class="form-control border border-1 border-dark rounded"
-                      id="password" placeholder="" name="password" value="{{ old('password') }}">
-
-                      <label for="password">Password</label>
-                      @error('password')
-                        <span class="text-danger">{{ $message }}</span>
-                      @enderror
-                    </div>
-          
+                    <x-input type=password name=password label=Password/>
 
                     <div class="text-center pt-1 mt-3 mb-5 pb-1">
                       <input type="submit" value="Login" class="btn btn-primary">
                     </div>
 
-                    <div class="row align-items-center justify-content-center pb-4">
+                    <div class="row align-items-center justify-content-center mt-2 mb-4">
                       <p class="mb-0 me-2 col-xs-12 text-center">Don't have an account?</p>
                       <a href="{{ route('register') }}" class="btn btn-outline-primary">Create New</a>
                     </div>

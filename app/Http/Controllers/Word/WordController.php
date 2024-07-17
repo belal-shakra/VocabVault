@@ -39,7 +39,7 @@ class WordController extends Controller
     {
         $word = $request->validated();
 
-        $isExist = Word::firstWhere('user_id', Auth::user()->id)->firstWhere('word', $word['word']);
+        $isExist = Word::firstWhere('user_id', Auth::user()->id)?->firstWhere('word', $word['word']);
 
         if($isExist)
             return back()->with('alreadyExist', 'This word already exist !');
